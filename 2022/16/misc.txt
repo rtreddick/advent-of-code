@@ -1,0 +1,10 @@
+# open valve
+            node.pressureReleased += node.flowRate
+            node.flowRate += node.valve.flowRate
+            node.openedValves.add(node.valve.valveId)
+            node.currentMinute += 1
+
+            # advance to next minute
+            if node.currentMinute < minutesAllowed:
+                node.currentMinute += 1
+                stack.append(node)
